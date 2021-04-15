@@ -31,7 +31,9 @@ ex.
 
 ## 5. 到 github 上發動 pull request
 
-會被導到另外一個頁面
+![btn picture](img/pull-btn.png)
+
+↑ 推完後，專案的 github 的主畫面會出現這個按鈕
 
 ## 6. 記下該網址，到學習系統點選繳交作業後在輸入框貼上
 
