@@ -18,15 +18,19 @@ rl.on('close', () => {
 // 上面都不用管，只需要完成這個 function 就好，可以透過 lines[i] 拿取內容
 function solve(lines) {
   const str = lines[0]
-  isPalindrome(str)
+  if (isPalindrome(str)) {
+    console.log('True')
+  } else {
+    console.log('False')
+  }
 }
 
 function isPalindrome(inputStr) {
   const reverseStr = getReverseStr(inputStr)
   if (inputStr === reverseStr) {
-    console.log('True')
+    return true
   } else {
-    console.log('False')
+    return false
   }
 }
 

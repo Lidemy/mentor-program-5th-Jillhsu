@@ -19,11 +19,16 @@ rl.on('close', () => {
 // 上面都不用管，只需要完成這個 function 就好，可以透過 lines[i] 拿取內容
 function solve(lines) {
   const n = lines[0]
+  console.log(getStarStr(n))
+}
+
+function getStarStr(n) {
+  let star = ''
   for (let i = 1; i <= n; i++) {
-    let star = ''
     for (let j = 1; j <= i; j++) {
       star += '*'
     }
-    console.log(star)
+    star += '\n'
   }
+  return star
 }

@@ -19,7 +19,11 @@ rl.on('close', () => {
 function solve(lines) {
   const m = Number(lines[0])
   for (let i = 1; i < m + 1; i++) {
-    judge(lines[i])
+    const inputArr = lines[i].split(' ')
+    const a = BigInt(inputArr[0])
+    const b = BigInt(inputArr[1])
+    const k = Number(inputArr[2])
+    console.log(compare(a, b, k))
   }
 }
 
@@ -27,27 +31,15 @@ function solve(lines) {
 // A 代表 A 選擇的數字，B 代表 B 選擇的數字，兩者皆保證為正整數
 // 要特別注意的是 A 與 B 可能是很大的數字，但保證長度為 512 個位數以內
 // K 只會有兩種情況：1 或是 -1，若是 1 代表數字大的獲勝，K 若是 -1 代表數字小的獲勝
-function judge(input) {
-  const inputArr = input.split(' ')
-  const a = BigInt(inputArr[0])
-  const b = BigInt(inputArr[1])
-  const k = Number(inputArr[2])
+function compare(a, b, k) {
+  let resultStr = ''
+
   if (a === b) {
-    console.log('DRAW')
-    return
+    resultStr = 'DRAW'
+    return resultStr
   }
 
-  if (k === 1) {
-    if (a > b) {
-      console.log('A')
-    } else {
-      console.log('B')
-    }
-  } else {
-    if (a > b) {
-      console.log('B')
-    } else {
-      console.log('A')
-    }
-  }
+  resultStr = ((k === 1 && a > b) || (k === -1 && b > a)) ? 'A' : 'B'
+
+  return resultStr
 }

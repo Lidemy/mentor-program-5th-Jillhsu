@@ -22,14 +22,22 @@ function solve(lines) {
   const m = Number(lines[0].split(' ')[1])
 
   for (let i = n; i <= m; i++) {
-    let numStrArr = []
-
-    numStrArr = i.toString().split('')
-
-    const total = numStrArr.map((value) => Math.pow(Number(value), numStrArr.length)).reduce((a, b) => a + b)
-
-    if (total === i) {
+    if (isNarcissistic(i)) {
       console.log(i)
     }
   }
+}
+
+function isNarcissistic(number) {
+  let numStrArr = []
+
+  numStrArr = number.toString().split('')
+
+  const total = numStrArr.map((value) => Math.pow(Number(value), numStrArr.length)).reduce((a, b) => a + b)
+
+  if (total === number) {
+    return true
+  }
+
+  return false
 }
